@@ -1,11 +1,9 @@
 ### Exploratory Data Analysis with Python Applied to Retail ###
 
-
 ### Análise de dados associados a perguntas de negócios ###
 ### Análise Exploratória de Dados em Linguagem Python Para a Área de Varejo ###
 
 # Fonte: https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls
-
 
 import pandas as pd
 import numpy as np
@@ -14,8 +12,7 @@ import seaborn as sns
 import datetime as dt
 
 ### Carregando os dados com pandas em Linguagem Python ###
-
-df = pd.read_csv("4-analysis/4-dados/dataset.csv")
+df = pd.read_csv("data_files/dataset.csv")
 
 print(f"\nShape dos dados é {df.shape}")
 print("\nPrimeiras linhas dos dados:")
@@ -23,7 +20,7 @@ print(df.head())
 print("\nÚltimas linhas dos dados:")
 print(df.tail())
 
-caminho = (f'4-analysis//4-graficos')
+caminho = (f'data_files/graphics')
 
 ### Análise exploratória ###
 

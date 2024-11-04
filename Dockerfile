@@ -1,25 +1,15 @@
-# Utilizar imagem base Python
-FROM python:3.10.11
+FROM python:3.10
 
-# Definir o diretório de trabalho
+# Definir diretório de trabalho
 WORKDIR /app
 
-# Copiar arquivos necessários
-COPY requirements.txt requirements.txt
-COPY 4-analysis_with_flask.py 4-analysis_with_flask.py
-COPY 4-analysis/4-dados/ 4-analysis/4-dados/
-COPY static/css/style.css static/css/style.css
-
-# Instalar as dependências
+# Copiar dependências e instalar
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    fonts-roboto \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
 
-# Expor a porta do Flask
-EXPOSE 5000
+# Copiar código e arquivos de configuração necessários
+COPY app/ /app/
 
-# Comando para iniciar a aplicação
-CMD ["python", "4-analysis_with_flask.py"]
+# Expor a porta e iniciar a aplicação
+EXPOSE 8080
+CMD ["python", "analysis_with_flask.py"]
